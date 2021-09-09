@@ -23,8 +23,8 @@ function App() {
       <main className="content">
           <Switch>
               <Route path="firstReactApp/" component={Movies} exact />
-              <Route path="firstReactApp/details/:movieId" component={Details} />
-              <Route path="firstReactApp/favorite" component={Favorite} />
+              <Route path="/details/:movieId" component={Details} />
+              <Route path="/favorite" component={Favorite} />
            </Switch>
 
 
