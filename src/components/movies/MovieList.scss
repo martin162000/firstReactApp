@@ -1,0 +1,15 @@
+.moviesList {
+	margin: 3em 0 0;
+	padding-left: 0;
+	list-style: none;
+
+	li {
+		margin-bottom: 3em;
+	}
+
+	li:last-child {
+		article {
+			margin-bottom: 0;
+		}
+	}
+}
