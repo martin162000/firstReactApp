@@ -22,7 +22,7 @@ function App() {
 
       <main className="content">
           <Switch>
-              <Route path="firstReactApp/" component={Movies} exact />
+              <Route path="firstReactApp/" component={Movies} />
               <Route path="/details/:movieId" component={Details} />
               <Route path="/favorite" component={Favorite} />
            </Switch>
