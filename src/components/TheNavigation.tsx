@@ -21,7 +21,7 @@ const TheNavigation = () => {
     return (
 
         <nav className="navigation">
-            <NavLink to="/">Movies</NavLink>
+            <NavLink to="/firstReactApp/">Movies</NavLink>
             <NavLink to={savedUrlDetail}>Details</NavLink>
             <NavLink to="/favorite">Favorite</NavLink>
         </nav>
