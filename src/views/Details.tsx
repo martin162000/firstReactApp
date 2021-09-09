@@ -34,7 +34,7 @@ const Details = () => {
       useEffect(() => {
         const fetchData = async () => {
           const result = await axios(
-            `http://omdbapi.com/?apikey=9304018a&i=${encodeURI(movieId)}`
+            `https://omdbapi.com/?apikey=9304018a&i=${encodeURI(movieId)}`
           );
 
             let movieDetail = result.data
