@@ -11,19 +11,19 @@ import './TheNavigation.scss';
 const TheNavigation = () => {
 
     const state = useSelector((state:any) => state)
-    let savedUrlDetail: string = "/details"
+    let savedUrlDetail: string = "firstReactApp/details"
 
     // save details MOVIE param
     if(state.allMovies.detail !== undefined){
-       savedUrlDetail = "/details/"+state.allMovies.detail
+       savedUrlDetail = "firstReactApp/details/"+state.allMovies.detail
     }
 
     return (
 
         <nav className="navigation">
-            <NavLink to="/" exact>Movies</NavLink>
+            <NavLink to="firstReactApp/" exact>Movies</NavLink>
             <NavLink to={savedUrlDetail}>Details</NavLink>
-            <NavLink to="/favorite">Favorite</NavLink>
+            <NavLink to="firstReactApp/favorite">Favorite</NavLink>
         </nav>
 
     )
