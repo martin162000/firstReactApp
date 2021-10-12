@@ -1,3 +1,11 @@
+@import "./details";
+@import "./favorite";
+@import "./theNavigation";
+@import "./movie";
+@import "./movieList";
+@import "./moviesSearchForm";
+
+
 .App {
 	font: {
 		size: 1em;

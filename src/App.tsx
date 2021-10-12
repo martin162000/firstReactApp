@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 
 
 // STYLES && ASSETS
-import './App.scss';
+import './assets/scss/App.scss';
 
 // COMPONENTS
 import TheNavigation from "./components/TheNavigation";

@@ -4,8 +4,7 @@ import  {ListMovies}  from '../../types/types'
 import Movie from './Movie'
 
 
-// STYLES && ASSETS
-import './MovieList.scss'
+
 
 
 interface Props {

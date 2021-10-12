@@ -1,7 +1,5 @@
 import React, {FormEvent, useRef } from 'react'
 
-// STYLES && ASSETS
-import './MoviesSearchForm.scss';
 
 interface Props {
     onSearch: (query: string) => void

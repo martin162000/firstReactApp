@@ -3,9 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-// STYLES && ASSETS
-import './Favorite.scss'
-
 
 
 const Favorite = () => {

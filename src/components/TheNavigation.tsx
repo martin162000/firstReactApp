@@ -3,9 +3,6 @@ import { useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 
 
-// Styles
-import './TheNavigation.scss';
-
 
 
 const TheNavigation = () => {

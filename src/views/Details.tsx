@@ -4,10 +4,6 @@ import { useParams} from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
 
 
-// STYLES && ASSETS
-import './Details.scss'
-
-
 const Details = () => {
 
     const state = useSelector((state:any) => state)
