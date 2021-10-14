@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import { useParams} from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
+import  {apiKey}  from '../types/types'
 
 
 const Details = () => {
@@ -30,7 +31,7 @@ const Details = () => {
       useEffect(() => {
         const fetchData = async () => {
           const result = await axios(
-            `https://omdbapi.com/?apikey=9304018a&i=${encodeURI(movieId)}`
+            `https://omdbapi.com/?apikey=${apiKey}&i=${encodeURI(movieId)}`
           );
 
             let movieDetail = result.data
@@ -49,9 +50,6 @@ const Details = () => {
         const objMovies:[] = state.allMovies.movies;
         const result = objMovies.find( ({ linkApi }) => linkApi === detail );
 
-        
-
-
         // Duplicite cant add
         if(state.allMovies.favorites !== undefined && state.allMovies.favorites.find( ({ linkApi }:any) => linkApi === detail )) {
         }else if(state.allMovies.favorites === undefined){
@@ -69,6 +67,14 @@ const Details = () => {
           
       }
 
+    const showStar = () => {
+        if(state.allMovies.favorites && state.allMovies.favorites.some((item:any) => item.linkApi === state.allMovies.detail)) {
+            return (<span className="star starActive" onClick={handleClickDetail}>★</span>)
+        } else {
+           return (<span className="star" onClick={handleClickDetail}>☆</span>)
+        }
+    }
+
 
 
     return (
@@ -81,8 +87,7 @@ const Details = () => {
                     <article className="detailMovie">
                         <div className="detailInside">
                              <div className="divstar">
-                                 <span className={state.allMovies.favorites && state.allMovies.favorites.some((item:any) => item.linkApi === state.allMovies.detail) ? "star starActive" : "star"}  onClick={handleClickDetail}>
-                              {state.allMovies.favorites && state.allMovies.favorites.some((item:any) => item.linkApi === state.allMovies.detail) ? "★" : "☆"} </span></div>
+                                 {showStar()}</div>
                             <h2>{movieDetails.Title}</h2>
                             <div>
                                 <div className="detailDivPicture"><img src={movieDetails.Poster} alt="movie art" /> </div>

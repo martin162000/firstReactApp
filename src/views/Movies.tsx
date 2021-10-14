@@ -8,25 +8,21 @@ import MoviesSearchForm from "../components/movies/MoviesSearchForm";
 import MoviesList from "../components/movies/MoviesList";
 
 // Types
-import  {MoviesFromApi}  from '../types/types'
+import  {MoviesFromApi, apiKey}  from '../types/types'
 
 
 
 const Movies = () => {
-
 
     const [movies, setMovies] = useState([])
     const dispatch = useDispatch();
     const state = useSelector((state:any) => state.allMovies.movies)
 
 
-  // Aby sa nenacitavalo znova
     useEffect(() => {
-
       if(state !== undefined) {
         let oldArrays = state
         setMovies(oldArrays)
-       // console.log("pridany")
       }
     }, [state]);
 
@@ -34,37 +30,34 @@ const Movies = () => {
     // Search movie 
     const handleSearch = (query: string) => {
           axios.get(
-            `https://omdbapi.com/?apikey=9304018a&s=${encodeURI(query)}`
+            `https://omdbapi.com/?apikey=${apiKey}&s=${encodeURI(query)}`
          ).then(response => {
-
           if(response.data.Response === "True") {
 
-            // All data to ombMovies
-            let ombMovies = response.data.Search.filter((movie: any) => movie.Poster !== "N/A").map((movie: any) => extractData(movie))
+              // All data to ombMovies
+              let ombMovies = response.data.Search.filter((movie: any) => movie.Poster !== "N/A").map((movie: any) => extractData(movie))
 
-            // Filter duplicate data by linkApi
-              const seen = new Set();
-              const filteredArr = ombMovies.filter((movie: { linkApi: unknown; }) => {
-                const duplicate = seen.has(movie.linkApi);
-                seen.add(movie.linkApi);
-                return !duplicate;
-              });
+              // Filter duplicate data by linkApi
+                const seen = new Set();
+                const filteredArr = ombMovies.filter((movie: { linkApi: unknown; }) => {
+                  const duplicate = seen.has(movie.linkApi);
+                  seen.add(movie.linkApi);
+                  return !duplicate;
+                });
+                
+              setMovies(filteredArr)
               
-            setMovies(filteredArr)
-            
-              // save objects with REDUX
-            dispatch({
-              type: "SET_MOVIE",
-              playload: filteredArr
-          });
-          }
+                // save objects with REDUX
+              dispatch({
+                type: "SET_MOVIE",
+                playload: filteredArr
+              });
+           }
 
          })
         
          
    }
-
-
 
    const extractData = ({
        Title: title,
