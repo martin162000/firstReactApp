@@ -1,0 +1,116 @@
+.zoomfadeOut {
+    transform: scale(1.0);
+    animation: zoomout 0.25s linear;
+  }
+  
+  .zoomfadein {
+    transform: scale(1.0);
+    animation: zoomfade 0.25s linear;
+  }
+
+
+  .fadeIn {
+    opacity:1;
+    animation: in 0.8s linear;
+  }
+
+  .leftFadeIn {
+
+    opacity:1;
+    animation: leftin 0.25s linear;
+  }
+
+
+  .searchNotFind {
+    opacity:0.5;
+    animation: searchin 0.6s linear;
+  }
+
+  .pulse {
+    transform: scale(1.0);
+    animation: pulseineff 0.25s linear;
+  }
+
+  @keyframes pulseineff {
+    0% {
+      transform: scale(1.0);
+    }
+
+    30% {
+      transform: scale(0.95);
+    }
+
+    80% {
+      transform: scale(0.95);
+  
+    }
+
+    100% {
+      transform: scale(1.0);
+    }
+  }  
+
+
+
+
+  @keyframes searchin {
+    0% {
+      opacity: 0;
+      transform: translateY(-10%);
+    }
+    100% {
+      opacity: 0.5;
+      transform: translateY(0%);
+  
+    }
+  }  
+
+
+  @keyframes leftin {
+    0% {
+      opacity: 0;
+      transform: translateX(-20%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+  
+    }
+  }  
+  
+
+  @keyframes in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+  
+    }
+  }  
+  
+  
+  @keyframes zoomfade {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.0);
+  
+    }
+  }
+  
+  @keyframes zoomout {
+    0% {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1.0);
+  
+    }
+  }
+  

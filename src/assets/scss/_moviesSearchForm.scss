@@ -30,6 +30,29 @@
 	}
 }
 
+.searchNotFind {
+	opacity: 0.5;
+	margin-top: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 300;
+
+	em {
+		font-size: 16px;
+		color: wheat;
+	}
+
+	p {
+		margin: 4px 0px;
+	}
+
+	strong {
+		color: #a4cde1;
+		font-size: 20px;
+		text-transform: uppercase;
+	}
+}
+
 @media screen and (max-width: 520px) {
 	.search {
 		font-size: 1.15em;

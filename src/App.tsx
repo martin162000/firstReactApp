@@ -11,11 +11,11 @@ import TheNavigation from "./components/TheNavigation";
 //views
 import Movies from './views/Movies';
 import Details from './views/Details';
-import Favorite from './views/Favorite';
+import Favourites from './views/Favourites';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App fadeIn">
       <header className="App-header">
             <TheNavigation  />
       </header>
@@ -24,7 +24,8 @@ function App() {
           <Switch>
               <Route path="/firstReactApp/" component={Movies} exact />
               <Route path="/details/:movieId" component={Details} />
-              <Route path="/favorite" component={Favorite} />
+              <Route path="/details" component={Details} />
+              <Route path="/favourites" component={Favourites} />
            </Switch>
 
 

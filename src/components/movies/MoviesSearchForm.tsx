@@ -2,19 +2,18 @@ import React, {FormEvent, useRef } from 'react'
 
 
 interface Props {
-    onSearch: (query: string) => void
+    onSearch: (query: any) => void
 }
 
 
 
 const MoviesSearchForm = (props: Props) => {
 
-
     const searchInput = useRef<HTMLInputElement>(null)
 
     const searchForMovie = () => {
         let searchString = searchInput.current?.value
-        if (searchString) props.onSearch(searchString)
+        props.onSearch(searchString)
 
     }
 
@@ -23,8 +22,6 @@ const MoviesSearchForm = (props: Props) => {
         e.preventDefault()
         searchForMovie()
     }
-
-
 
 
     return (

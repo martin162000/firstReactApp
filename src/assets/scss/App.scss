@@ -4,6 +4,7 @@
 @import "./movie";
 @import "./movieList";
 @import "./moviesSearchForm";
+@import "./animations";
 
 
 .App {
@@ -30,7 +31,7 @@ header {
 	font-size: 1.15em;
 	line-height: 1.5em;
 	// padding: 1.5em 1.75em;
-	padding: 1.5em 1.75em 0;
+	padding: 3.5em 1.75em 0;
 }
 
 article {

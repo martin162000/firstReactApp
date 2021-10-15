@@ -93,56 +93,29 @@
 		width: 10em;
 		border: 1px solid #000000;
 		border-radius: 0.3em;
-        min-height: 14em;
+        min-height: 15em;
 	}
 
 
-	audio::-webkit-media-controls-panel,
-	audio::-webkit-media-controls {
-		background: #fff;
-	}
 
-	.meta {
-		font-size: 0.75em;
-		font-weight: 800;
-		line-height: 1.5;
-		color: rgba(255, 255, 255, 0.9);
-		padding: 1.5em 2.25em;
-		background: #101010;
-	}
 }
 
-// responsive
-@media screen and (max-width: 520px) {
-	.player {
-		// audio {
-		// 	margin-top: 1.5em;
-		// }
+@media screen and (max-width: 600px) {
 
+	.movieFavorite img {
+		width: 13em;
+		border: 1px solid #000000;
+		border-radius: 0.3em;
+		min-height: 18em;
+	}
+
+	.btnDetail{
+		margin: 25px auto 15px;
+	}
+
+	.movieFavorite .imgMovie {
+		align-items: center;
 		flex-direction: column;
 	}
 }
 
-.song-enter-active,
-.song-exit-active {
-	transition: all 0.2s;
-}
-
-.song-enter {
-	opacity: 0;
-	transform: scale(0.85);
-}
-
-.song-enter-active {
-	opacity: 1;
-	transform: translateX(0);
-}
-
-.song-exit {
-	opacity: 1;
-}
-
-.song-exit-active {
-	opacity: 0;
-	transform: scale(0.85);
-}

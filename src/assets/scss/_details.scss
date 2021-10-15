@@ -1,19 +1,15 @@
 .detailMovie {
-	color: #262626;
-	text-align: left;
-	max-width: 100%;
-	margin: 0 auto 2em;
-	position: relative;
-	box-sizing: border-box;
+    color: #9fa7bb;
+    text-align: left;
+    max-width: 100%;
+    margin: 0 auto 2em;
+    position: relative;
+    box-sizing: border-box;
     background-color: #525763;
-   // border-radius: 0.3em;
+    margin-top: 3.5em;
+    border-radius: 8px;
+    border: 2px solid black;
 
-	/*&:active,
-	&:hover{
-		background-color: #696f7d;
-		cursor: pointer;
-		outline: 2px solid white;
-	}*/
 
 	.divstar {
 		height: 0;
@@ -26,19 +22,24 @@
 		position: relative;
 		right: 0.5em;
 		text-align: center;
-		color: #33c333;
+		color: #61dafb;
 		padding: 0 0.24em;
 	}
 
 	.starActive {
 		font-size: 2.3em;
-		color: #1dff1d;
+		color: #61dafb;
 
+	}
+
+	strong {
+		color: #c4e4ff;
+		font-weight: 600;
 	}
 
 
 	.detailInside {
-		padding: 1.35em 1.75em 1.75em;
+		padding: 2em 1.75em;
 	}
 
     .detailDivPicture{
@@ -55,7 +56,7 @@
 
     .plot {
         background: #525763;
-        border: 1px solid #282c34;
+       // border: 1px solid #9fa7bb;
         padding: 0.7em;
         border-radius: 0.3em;
         font-size: 0.9em;
@@ -75,12 +76,14 @@
 	}
 
 	h2 {
-		font-size: inherit;
 		line-height: 1.5em;
 		margin: 0;
+		font-size: 25px;
 		text-align: center;
-		color: #101010;
-        margin-bottom: 1em;
+		padding-bottom: 0.5em;
+		color: #1e2126;
+		margin-bottom: 1.0em;
+		border-bottom: 1px solid #40444c;
 	}
 
 
@@ -104,39 +107,45 @@
 		padding: 1.5em 2.25em;
 		background: #101010;
 	}
-}
 
-// responsive
-@media screen and (max-width: 520px) {
-	.player {
-		// audio {
-		// 	margin-top: 1.5em;
-		// }
 
-		flex-direction: column;
+
+	@media (max-width: 650px) {
+		max-width: 50%;
+		min-width: 300px;
+
+		.detailDivPicture{
+			margin: 0 auto;
+			width: 13em;
+			float: none;
+		 }
+
+		.detailText{
+			float: left;
+			max-width: 100%;
+			padding-left: 1em;
+			font-size: 0.85em;
+			margin-top: 2em;
+			}
+
+		 .plot {
+			background: #525763;
+			padding: 0.7em;
+			border-radius: 0.3em;
+			font-size: 0.9em;
+			margin-top: 22em;
+			border: 1px solid #676c76;
+		 }
+
+		 img {
+			width: 13em;
+			border-radius: 0.3em;
+			min-height: 14em;
+		}
+
+		.star {
+			right: 0.7em;
+		}
 	}
 }
 
-.song-enter-active,
-.song-exit-active {
-	transition: all 0.2s;
-}
-
-.song-enter {
-	opacity: 0;
-	transform: scale(0.85);
-}
-
-.song-enter-active {
-	opacity: 1;
-	transform: translateX(0);
-}
-
-.song-exit {
-	opacity: 1;
-}
-
-.song-exit-active {
-	opacity: 0;
-	transform: scale(0.85);
-}

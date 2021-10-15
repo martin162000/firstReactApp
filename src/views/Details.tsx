@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import axios from 'axios'
 import { useParams} from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,9 @@ const Details = () => {
     const state = useSelector((state:any) => state)
     const dispatch = useDispatch();
     const { movieId } = useParams<{ movieId: string }>();
+    const refBlockDetails:any = useRef(null);
+
+
     const [movieDetails, setMovieDetails] = useState(
         {
             Title: "",
@@ -35,11 +38,10 @@ const Details = () => {
           );
 
             let movieDetail = result.data
-           // console.log(result.data)
             setMovieDetails(movieDetail) 
         };
-     
         fetchData();
+
       }, [movieId]);
 
 
@@ -53,12 +55,14 @@ const Details = () => {
         // Duplicite cant add
         if(state.allMovies.favorites !== undefined && state.allMovies.favorites.find( ({ linkApi }:any) => linkApi === detail )) {
         }else if(state.allMovies.favorites === undefined){
+            refBlockDetails.current.classList.add("pulse");
             dispatch({
                 type: "ADD_FAVORITE",
                 playload: result
             });
 
         }else{
+            refBlockDetails.current.classList.add("pulse");
             dispatch({
                 type: "ADD_FAVORITE",
                 playload: result
@@ -77,41 +81,53 @@ const Details = () => {
 
 
 
+    const showDetail = (details:any) => {
+        if(!!details.Title) {
+            return (
+                <article className="detailMovie zoomfadeOut" ref={refBlockDetails}>
+                <div className="detailInside">
+                    <div className="divstar">
+                        {showStar()}</div>
+                    <h2>{details.Title}</h2>
+                    <div>
+                        <div className="detailDivPicture"><img src={details.Poster} alt="movie art" /> </div>
+
+                        <div className="detailText">  
+                            <p> <strong>Rating:</strong> {details.imdbRating} </p>
+                            <p> <strong>Genre:</strong> {details.Genre} </p> 
+                            <p> <strong>Runtime:</strong> {details.Runtime} </p> 
+                            <p> <strong>Country:</strong> {details.Country} </p> 
+                            <p> <strong>Director:</strong> {details.Director}  </p> 
+                            <p> <strong>Writer:</strong> {details.Writer}  </p> 
+                            <p> <strong>Actor:</strong> {details.Actors} </p> 
+                            <p> <strong>Released:</strong>  {details.Released}</p> 
+                        </div>
+
+                    </div>
+
+                    <div className="plot">
+                    <strong>Plot:</strong> {details.Plot} 
+                    </div>
+
+                </div>
+            </article>
+        
+         )} else if(movieId) {
+            return (<div>...Loading</div>) 
+        }
+        else {
+           return (<div className="zoomfadein">You must search and choice movie or tv series for show his details</div>) 
+       }
+    }
+
+
+
+
+
     return (
              <div>
                  <h1>Movie details </h1>
-
-
-            {Object.keys(movieDetails.Title).length === 0 ? (<div>...Loading</div>) :
-                (
-                    <article className="detailMovie">
-                        <div className="detailInside">
-                             <div className="divstar">
-                                 {showStar()}</div>
-                            <h2>{movieDetails.Title}</h2>
-                            <div>
-                                <div className="detailDivPicture"><img src={movieDetails.Poster} alt="movie art" /> </div>
-
-                                <div className="detailText">  
-                                    <p> <strong>Rating:</strong> {movieDetails.imdbRating} </p>
-                                    <p> <strong>Genre:</strong> {movieDetails.Genre} </p> 
-                                    <p> <strong>Runtime:</strong> {movieDetails.Runtime} </p> 
-                                    <p> <strong>Country:</strong> {movieDetails.Country} </p> 
-                                    <p> <strong>Director:</strong> {movieDetails.Director}  </p> 
-                                    <p> <strong>Writer:</strong> {movieDetails.Writer}  </p> 
-                                    <p> <strong>Actor:</strong> {movieDetails.Actors} </p> 
-                                    <p> <strong>Released:</strong>  {movieDetails.Released}</p> 
-                                </div>
-
-                            </div>
-
-                            <div className="plot">
-                                 Plot: {movieDetails.Plot} 
-                            </div>
-
-                        </div>
-                    </article>
-                )}
+                    {showDetail(movieDetails)}
 
 
       </div>

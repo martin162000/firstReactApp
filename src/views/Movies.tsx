@@ -17,12 +17,14 @@ const Movies = () => {
     const [movies, setMovies] = useState([])
     const dispatch = useDispatch();
     const state = useSelector((state:any) => state.allMovies.movies)
+    const [wasEnter, setWasEnter] = useState(0)
 
 
     useEffect(() => {
       if(state !== undefined) {
         let oldArrays = state
         setMovies(oldArrays)
+        setWasEnter(1)
       }
     }, [state]);
 
@@ -44,19 +46,23 @@ const Movies = () => {
                   seen.add(movie.linkApi);
                   return !duplicate;
                 });
+
                 
               setMovies(filteredArr)
+              setWasEnter(1)
               
                 // save objects with REDUX
               dispatch({
                 type: "SET_MOVIE",
                 playload: filteredArr
               });
+           } else {
+            setMovies([])
+            setWasEnter(1)
            }
 
          })
         
-         
    }
 
    const extractData = ({
@@ -69,13 +75,24 @@ const Movies = () => {
        return {title, year, linkApi, type, poster}
    }
 
+   const showMovies = (mov:any) => {
+     if(mov.length > 0) {
+       return <MoviesList movies={mov} />
+     } else if (wasEnter === 1) {
+       return <div className="searchNotFind"> We can't find movie or tv series with this title. Try another one. </div>
+     }
+     else {
+       return <div className="searchNotFind"> Search for any movie or tv series <em>(for example: batman)</em> <p>and press  <strong>enter</strong></p></div>
+     }
+   }
+
 
 
     return (
         <article className="movies">
             <h1>Movies</h1>
             <MoviesSearchForm onSearch={handleSearch}/>
-            <MoviesList movies={movies} />
+            {showMovies(movies)}
         </article>
     )
 }

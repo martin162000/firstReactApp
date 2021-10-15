@@ -10,15 +10,11 @@ interface Props {
 
 const Movie = (props: Props) => {
 
-
-
     const dispatch = useDispatch();
 
     const {movie} = props
 
     const handleClick = () => {
-      //  alert(movie.linkApi)
-
       dispatch({
         type: "SELECTED_MOVIE",
         playload: movie.linkApi
@@ -27,7 +23,7 @@ const Movie = (props: Props) => {
     }
 
     return (
-        <article className="movie" onClick={handleClick}>
+        <article className="movie zoomfadein" onClick={handleClick}>
             <Link to={`/details/${movie.linkApi}`}>
             <div className="inside">
                 <h2>{movie.title}</h2>

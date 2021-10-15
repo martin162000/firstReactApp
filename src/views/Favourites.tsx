@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 
-const Favorite = () => {
+const Favourites = () => {
 
     const dispatch = useDispatch();
     const state = useSelector((state:any) => state)
@@ -23,12 +23,12 @@ const Favorite = () => {
     const showMovies = (all:any) => {
         if(all === undefined || all.length <= 0) {
             return (
-                <div>Nothing, You need to search for a movie and add it to your favorites</div>
+                <div className="zoomfadein">You haven't saved anything yet. Search for a movie or a tv series and add it to you favourites.  </div>
             )
         } else {
             return (
                 all.map((movie:any) => (
-                    <li key={movie.linkApi}>
+                    <li key={movie.linkApi} className="leftFadeIn">
                         
                         <article className="movieFavorite">
                             <div className="inside">
@@ -50,7 +50,7 @@ const Favorite = () => {
             return (
 
                     <div>
-                        <h1>Favorite movies</h1>
+                        <h1>Favourites movies</h1>
                         <ul className="moviesList">
                             {showMovies(state.allMovies.favorites)} 
                         </ul>
@@ -58,4 +58,4 @@ const Favorite = () => {
             )
 }
 
-export default Favorite
+export default Favourites

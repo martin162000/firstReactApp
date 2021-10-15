@@ -17,8 +17,6 @@ const MoviesList = (props: Props) => {
 
     const {movies} = props
 
-
-
     return (
 
         <ul className="moviesList">

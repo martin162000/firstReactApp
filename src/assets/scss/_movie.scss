@@ -47,11 +47,6 @@
 	}
 
 
-	audio::-webkit-media-controls-panel,
-	audio::-webkit-media-controls {
-		background: #fff;
-	}
-
 	.meta {
 		font-size: 0.75em;
 		font-weight: 800;
@@ -62,37 +57,4 @@
 	}
 }
 
-// responsive
-@media screen and (max-width: 520px) {
-	.player {
-		// audio {
-		// 	margin-top: 1.5em;
-		// }
 
-		flex-direction: column;
-	}
-}
-
-.song-enter-active,
-.song-exit-active {
-	transition: all 0.2s;
-}
-
-.song-enter {
-	opacity: 0;
-	transform: scale(0.85);
-}
-
-.song-enter-active {
-	opacity: 1;
-	transform: translateX(0);
-}
-
-.song-exit {
-	opacity: 1;
-}
-
-.song-exit-active {
-	opacity: 0;
-	transform: scale(0.85);
-}
