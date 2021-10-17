@@ -1,5 +1,16 @@
 .navigation {
-    padding: 0.2em 1.45em;
+
+	padding: .2em 1.45em;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    background: $bgColor;
+    border: 7px solid $bgColorHeader;
+    margin-top: 6px;
+    font-size: 0.95em;
+
+
+    /*padding: 0.2em 1.45em;
     display: inline-block;
     vertical-align: middle;
     white-space: nowrap;
@@ -7,7 +18,7 @@
     background: #343944;
     border-bottom: 6px solid #51545e;
     border-radius: 1.2em;
-    margin: 2em auto 2.5em;
+    margin: 2em auto 2.5em;*/
 
 	a {
 		color: white;

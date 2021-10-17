@@ -50,7 +50,7 @@ const Favourites = () => {
             return (
 
                     <div>
-                        <h1>Favourites movies</h1>
+                        <h1>Favourite movies</h1>
                         <ul className="moviesList">
                             {showMovies(state.allMovies.favorites)} 
                         </ul>

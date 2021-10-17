@@ -17,20 +17,19 @@
 
 
 .btn {
-    background: #999fad;
+    background: lighten($bgColor, 12%);
     padding: 0.6em 0.9em;
-    border-radius: 0.3em;
     text-transform: uppercase;
-    color: black;
-    font-size: 0.9em;
-    border: 2px solid #0e0e0e;
-    margin: 0.4em;
+    color: lighten($bgColorHeader, 60%);
+    font-size: 0.8em;
+    border: 1px solid lighten($bgColorHeader, 20%);;
+    margin: 0.6em;
     cursor: pointer;
 }
 
 .btnDetail
 {
-    margin-left: 2.5em;
+	margin-left: 3.25em;
     &:hover,
     &:active {
         background-color: #7787ab;
@@ -39,12 +38,12 @@
 
 .btnRemove
 {
-    background: #b78383;
+    background:#c16767;
 
     &:hover,
     &:active {
 
-        background:#c16767
+        background:darken(#c16767, 10%);
 
     }
 }
@@ -52,14 +51,14 @@
 
 
 .movieFavorite {
-	color: #262626;
+	color: lighten($bgColorHeader, 60%);
 	text-align: left;
 	max-width: 28.0em;
 	margin: 0 auto 2em;
 	position: relative;
 	box-sizing: border-box;
-    background-color: #525763;
-    border: 3px solid #181b1f;
+    background-color: $bgColorHeader;
+    border: 2px solid lighten($bgColorHeader, 10%);
    // border-radius: 0.3em;
 
 
@@ -76,7 +75,7 @@
         line-height: 1.9em;
         margin: 0;
         text-align: center;
-        color: #101010;
+        
         border-bottom: 1px solid #4b4f58;
         padding-bottom: 0.5em;
 	}
@@ -91,9 +90,8 @@
 
 	img {
 		width: 10em;
-		border: 1px solid #000000;
-		border-radius: 0.3em;
         min-height: 15em;
+		outline: 3px solid lighten($bgColorHeader, 20%);
 	}
 
 
@@ -104,8 +102,6 @@
 
 	.movieFavorite img {
 		width: 13em;
-		border: 1px solid #000000;
-		border-radius: 0.3em;
 		min-height: 18em;
 	}
 

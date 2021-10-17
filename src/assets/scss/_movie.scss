@@ -5,12 +5,12 @@
 	margin: 0 auto 2em;
 	position: relative;
 	box-sizing: border-box;
-    background-color: #525763;
+    background-color: $bgColorHeader;
    // border-radius: 0.3em;
 
 	&:active,
 	&:hover{
-		background-color: #696f7d;
+		background-color: lighten($bgColorHeader, 15%);
 		cursor: pointer;
 		outline: 2px solid white;
 	}
@@ -28,7 +28,7 @@
 		line-height: 1.5em;
 		margin: 0;
 		text-align: center;
-		color: #101010;
+		color: lighten($bgColorHeader, 60%);
 	}
 
 	.imgMovie {
@@ -41,8 +41,7 @@
 
 	img {
 		width: 10em;
-		border: 1px solid #000000;
-		border-radius: 0.3em;
+		outline: 2px solid lighten($bgColorHeader, 20%);
 		min-height: 14em;
 	}
 

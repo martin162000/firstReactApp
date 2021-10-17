@@ -5,10 +5,10 @@
     margin: 0 auto 2em;
     position: relative;
     box-sizing: border-box;
-    background-color: #525763;
+    background-color: $bgColorHeader;
     margin-top: 3.5em;
     //border-radius: 8px;
-	border: 3px solid #181b1f;
+	border: 2px solid lighten($bgColorHeader, 10%);
 
 
 	.divstar {
@@ -50,7 +50,7 @@
     .detailText{
         float: left;
         max-width: 60%;
-        padding-left: 1em;
+        padding-left: 1.5em;
         font-size: 0.85em;
     }
 
@@ -58,7 +58,6 @@
         background: #525763;
        // border: 1px solid #9fa7bb;
         padding: 0.7em;
-        border-radius: 0.3em;
         font-size: 0.9em;
         margin-top: 20em;
     }
@@ -81,7 +80,7 @@
 		font-size: 25px;
 		text-align: center;
 		padding-bottom: 0.5em;
-		color: #1e2126;
+		color: lighten($bgColorHeader, 60%);
 		margin-bottom: 1.0em;
 		border-bottom: 1px solid #40444c;
 	}
@@ -89,7 +88,7 @@
 
 	img {
 		width: 10em;
-		border-radius: 0.3em;
+		outline: 3px solid lighten($bgColorHeader, 20%);
 		min-height: 14em;
 	}
 
@@ -125,17 +124,15 @@
 			}
 
 		 .plot {
-			background: #525763;
+			background: $bgColorHeader;
 			padding: 0.7em;
-			border-radius: 0.3em;
 			font-size: 0.9em;
-			margin-top: 22em;
+			margin-top: 23em;
 			border: 1px solid #676c76;
 		 }
 
 		 img {
 			width: 13em;
-			border-radius: 0.3em;
 			min-height: 14em;
 		}
 
